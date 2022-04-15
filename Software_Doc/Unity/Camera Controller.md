@@ -1,6 +1,3 @@
-# Brief
-The camera controller controls cameras for the first, second and third station camera, as well as the cameras in the final simulation scenes. It uses several cameras which ouput to render texture.
-
 # Dependency
 - In the main game scene (local): 'SampleScene\FinalSimulation\ChangeCameraBlock' `Assets\Scripts\CameraSwitchCheckPointCollision.cs`
 - In the main game scene (global): on 'LastStationCameraController', below '=====Manager======' `Assets\Scripts\LastStationCameraController.cs`

@@ -1,3 +1,6 @@
+# Brief
+The train movement controls train to switch window, stop at checkpoint, leave the checkpoint, move reverse.
+
 # Dependency
 - In the train prefab (local):Assets\Prefabs
 - In the main game scene (global): on 'TrainMgr', below '=====Manager======' `Assets\Scripts\Train\TrainMgr.cs`

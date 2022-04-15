@@ -58,3 +58,7 @@ Mirrored:​ controls stay in a straight, equidistant line around their anchor p
 Free:​ no constraints.
 
 Automatic:​ controls are positioned automatically to try make the path smooth.
+
+# Create train track mesh holder
+
+#
