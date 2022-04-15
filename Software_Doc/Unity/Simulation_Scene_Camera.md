@@ -16,7 +16,7 @@
 
     when `bReverse ` is true, the train's speed = -1 * `speed `
 
--   `public void OnPathChanged() `
+-   `public void OnPathChanged()`
 
     If the path changes during the game, update the distance travelled so that the follower's position on the new path
     
@@ -27,31 +27,29 @@
 
 # `LastStationCameraController.cs`
 
+-   `public GameObject lastStation;`
+![Alt text](https://user-images.githubusercontent.com/49530505/163618768-d080372c-9fe8-40ab-9f3e-e2fcc8de5e19.png "the last window")
+
+    The RawImage that display the rendertexture of the simulation camera.
+
+-   `public List<RenderTexture> windowTextures;`
+
 -   `public void SetTextureByIndex(int index)`
 
     when `bMoving ` is false, the train is static
 
 
-# Scene Controls:
-![Alt text](https://assets.digitalocean.com/articles/alligator/boo.svg "a title")
-## Moving points:
-Left-click and drag to move the points around. If you click on a point without
-dragging, it will turn into a move tool with arrows so that you can move along a
-single axis.
+# Set Camera for different windows:
+![Alt text](https://user-images.githubusercontent.com/49530505/163623741-7e518fad-196c-40df-982a-6f8bc9141c3a.png "the last window")
 
-## Adding and Inserting points:
-Shift-left-click to add new anchor points to the end of the path (hold the ​ctrl ​key
-to add to the start of the path instead). To insert a point, shift-left-click over an
-existing segment of the path.
+Create a new camera and new render texture. Set the render texture in camera's output.
 
-## Deleting points:
-Ctrl-click over an anchor point to delete it.
+![Alt text](https://user-images.githubusercontent.com/49530505/163622137-a74b015f-4364-45ef-a554-2f87312a4e63.png "the last window")
 
-# Bézier Path Options:
-## Control Mode:
-Aligned:​ controls stay in a straight line around their anchor point.
+Set the render texture to the Raw Image in Canvas
 
-Mirrored:​ controls stay in a straight, equidistant line around their anchor point.
-Free:​ no constraints.
-
-Automatic:​ controls are positioned automatically to try make the path smooth.
+# Switch camera in simulation scene:
+- Add switch camera check point blocks in 'SampleScene\FinalSimulation\ChangeCameraBlock' 
+- Attach `CameraSwitchCheckPointCollision` on the block.
+- Add the rendertexture in the public list
+- Set the index of render texture in the public list to public int `cameraIndex` in `CameraSwitchCheckPointCollision`
