@@ -31,6 +31,10 @@
 
     when `bMoving ` is false, the train is static
 
+# Create New Track:
+![Alt text](https://user-images.githubusercontent.com/49530505/163629604-67efb9c1-d059-411e-8baf-b946ae81d10b.png "track")
+
+A new track contains startPoint, endPoint, midCheckPoint and Road Mesh Holder (optional)
 
 # Scene Controls:
 ## Moving points:
