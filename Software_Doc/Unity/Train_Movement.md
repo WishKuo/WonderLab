@@ -1,4 +1,6 @@
 # Brief
+@Author: Muru Chen
+
 The train movement controls train to switch window, stop at checkpoint, leave the checkpoint, move reverse.
 
 # Dependency
@@ -10,50 +12,73 @@ The train movement controls train to switch window, stop at checkpoint, leave th
 -   ``` c#
     public class Train
     {
+        // The train game object with scripts attached
         public GameObject train { get; set; }
+
+        // The index in the train dictionary in TrainMgr
         public int index;
+
+        // The id that is given by RFID card
         public string id;
+
+        // The script on corresponding path
         PathFollower pathFollower = null;
+
+        // The script on corresponding path
         PathCreator pathCreator = null;
+
+        // current station: 1, 2, 3, 4
         public int curWindow = 0;
+        
+        // when the player hasn't pressed done, the train can't move.
         public bool canMove = true;
+
+        // The fsm dictionary, containing four states
         private DicFSM StateDic = new DicFSM();
+
+        // FSM
         public StateMachine stateMachine { get; set; }
 
+        // Back to the first station
         public void ResetWindow();
+
+        // Create four states for each station
         void InitializeStateMachine();
+
+        // Start moving along the track
         public void StartPath();
+
+        // Stop the train movement
         public void StopPathFollower();
+
+        // When the train reach the middle of the railway, send message to state and stop the train
         public void GetReachCheckPointEvent(int checkpoint);
+
+        // Train leave the station.
         public void ClickDoneButton();
+
+        // Check whether there is a train already at that station. Scan RFID card on the station, and the train will move to that station.
         public void ChooseWindow(int window);
     }
     ```
 
 # `Assets\Scripts\Train\TrainMgr.cs`
 
-    when `bMoving ` is false, the train is static
 
 -   `[SerializeField] private List<GameObject> paths; `
 
-    when `bReverse ` is true, the train moves from the endpoint to startpoint
+    Stores the track in 1, 2, 3 stations.
 
--   `[SerializeField] private PathCreator pathCreator;`
-
-    when `bReverse ` is true, the train's speed = -1 * `speed `
 
 -   `[SerializeField] private GameObject trainPrefab;`
 
-    If the path changes during the game, update the distance travelled so that the follower's position on the new path
-    
-    is as close as possible to its position on the old path
-
-    When the train change the track, run `OnPathChanged() `
+    Used for instantiating new trains in the scene
 
 - `public void CreateNewTrain(int window, string id, int arrayIndex);`
 
 - `public void CreateNewTrain(int window)`
 
+    When the RFID card scan the window but there is no train for this card, the system will generate a new train showing up at the station.
 
 # Checkpoints:
 ## checkpoints in 1, 2, 3 stations
@@ -62,6 +87,12 @@ The train movement controls train to switch window, stop at checkpoint, leave th
 Create transparent cube and attach `BranchCheckPoint.cs`
 
 ## checkpoints in simulation scenes
-- Bridge
 
-- Reset
+![Alt text](https://user-images.githubusercontent.com/49530505/164113406-2550cb70-448f-4ca8-9054-8207601c34a2.png "bridge")
+
+- Bridge: When the train passes the bridge, the bridge will play animation. Add the bridge model to the script.
+<br></br>
+
+![Alt text](https://user-images.githubusercontent.com/49530505/164112938-4d1782d9-d169-40b3-b892-c9bc827fc1b2.png "reset check point")
+
+- Reset: When the train passes the reset checkpoint, the camera in the simulation scene will reset to the first one. Attach `ResetCheckPoint`

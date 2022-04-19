@@ -1,3 +1,8 @@
+# Brief
+@Author: Muru Chen
+
+The camera controller controls cameras for the first, second and third station camera, as well as the cameras in the final simulation scenes. It uses several cameras which ouput to render texture.
+
 # Dependency
 - In the main game scene (global): below '=====Road======' `Assets\pathCreator\Scripts\PathFollower.cs`
 - In the main game scene (global): on 'TrainMgr', below '=====Manager======' `Assets\Scripts\Train\TrainMgr.cs`
@@ -29,15 +34,23 @@
 
 -   `public void SetNewPath(GameObject train, bool isReverse, int window)`
 
-    when `bMoving ` is false, the train is static
+    Call this function when the train is switching tracks.
 
 # Create New Track:
 ![Alt text](https://user-images.githubusercontent.com/49530505/163629604-67efb9c1-d059-411e-8baf-b946ae81d10b.png "track")
 
 A new track contains startPoint, endPoint, midCheckPoint and Road Mesh Holder (optional)
 
+# Path Creator Reference
+
+https://github.com/SebLague/Path-Creator
+
 # Scene Controls:
 ## Moving points:
+![Alt text](https://user-images.githubusercontent.com/49530505/164095069-00d158da-e8c4-417d-b308-ee6a62ddf69a.png "move points")
+
+![Alt text](https://user-images.githubusercontent.com/49530505/164096375-4c9d3ac2-2876-42f1-9624-da618d6f9bf0.png "move points")
+
 Left-click and drag to move the points around. If you click on a point without
 dragging, it will turn into a move tool with arrows so that you can move along a
 single axis.
@@ -60,5 +73,10 @@ Free:​ no constraints.
 Automatic:​ controls are positioned automatically to try make the path smooth.
 
 # Create train track mesh holder
+![Alt text](https://user-images.githubusercontent.com/49530505/164102493-ca4b709a-9e5c-4195-a138-6462e9667d60.png "move points")
 
-#
+- Attach `RoadMeshCreator` on Road Creator
+
+- Add Road Material and Underside Material
+
+- Click Manual Update
