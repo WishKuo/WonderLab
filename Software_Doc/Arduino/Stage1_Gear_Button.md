@@ -10,7 +10,7 @@ It communicates with `Assets/Scripts/Train/GearButtonController.cs`
 
 # `GearButtons.ino`
 ## Variables
-```Arduino
+``` C++
 // DO NOT change the Pin mode unless you're modifying the way it wires
 int SmallGearButtonSwitch = 45; 
 int MedGearButtonSwitch = 43; 
@@ -33,7 +33,7 @@ int ClearButtonLight = 23;
 - For more information, reference to [Arduino's Doc about digital I/O](https://www.arduino.cc/reference/en/language/functions/digital-io/pinmode/)
 
 ## Example code sensing the button and light up the LED
-```Arduino
+``` C++
 if (digitalRead(SmallGearButtonSwitch) == LOW){ // if the button is pressed
     digitalWrite(SmallGearButtonLight, HIGH); // Light up the LED
 } else{

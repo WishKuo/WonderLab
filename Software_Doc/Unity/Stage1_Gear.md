@@ -2,19 +2,20 @@
 Author: Wish Kuo
 
 The following scripts are related to the Gear (1st) Station.
-Each function is fully implemented, and is described below. Ror more information please reference the comments in the scripts.
+Each function is fully implemented, and is described below. For detailed information please reference to the comments in the scripts.
 
 # Dependency (Where should put the scripts)
 - On the train (local): `Assets/Scripts/Train/TrainGearController.cs`
 - In the main game scene (global):
     - Link Arduino to Unity: `Assets/Scripts/Train/GearButtonController.cs`
 
-# `TrainGearController.cpp`
+# `TrainGearController.cs`
 This script should be added to the prefab of the train.
+
+It receives the input from either physical inputs or a keyboard, and then makes the action.
 
 ## Variables 
 ### Configuration
-
 - `private int length_total_max`: maximum length of the total gears
 - `private float initial_trainSpeed`: default speed for the train
 - `private float RotationSpeed`: the gear's rotation speed
@@ -30,7 +31,7 @@ This script should be added to the prefab of the train.
 
 
 ### For Debug purpose
-- `private bool keyboardInput`: check (set to true) if no physical inputs are connected
+- `private bool keyboardInput`: check (set to true) on the inspector if no physical inputs are connected
 - `private int indicator`: indicates current state of the ref_points
 - `private int last_gear_length`: store the last gear length in order to implement the undo function
 
