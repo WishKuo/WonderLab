@@ -1,11 +1,13 @@
 # Brief Introduction
+The following scripts are related to the Gear Station.
+Full functions are implemented. 
 
-# Dependency
+# Dependency (Where should put the scripts)
 - On the train (local): `Assets/Scripts/Train/TrainGearController.cs`
-- In the main game scene (global): `Assets/Scripts/Train/GearButtonController.cs`
-- Arduino code: 
-    - w/o RFID:
-    - w RFID: `Assets/Scripts/Train/GearButtonController.cs`
+- In the main game scene (global):
+    - Link Arduino to Unity: 
+        - w/o RFID: `Assets/Scripts/Train/GearButtonController.cs`
+        - w RFID: 
 
 # `TrainGearController.cpp`
 This script should be added to the prefab of the train.
@@ -54,4 +56,9 @@ public float CalculateTrainSpeed(float init_speed, Stack<int> gearLengthOnTrain)
 
 # `GearButtonController.cs`
 This script should be added in the main game scene which has to be active at the very beginning of the game.
+It will connect to the Arduino through [serial communication](https://create.arduino.cc/projecthub/raisingawesome/unity-game-engine-and-arduino-serial-communication-12fdd5).
+Also, in order to avoid the lagging issue while plug in multiple Arduino boards, the code implements multi-thread.
+
+
+
 
