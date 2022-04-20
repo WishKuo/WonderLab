@@ -12,7 +12,7 @@ Each function is fully implemented, and is described below. For detailed informa
 # `TrainGearController.cs`
 This script should be added to the prefab of the train.
 
-It receives the input from either physical inputs or a keyboard, and then makes the action.
+It receives the input from either physical inputs (Buttons) or a keyboard, and then makes the action.
 
 ## Variables 
 ### Configuration
@@ -21,7 +21,7 @@ It receives the input from either physical inputs or a keyboard, and then makes 
 - `private float RotationSpeed`: the gear's rotation speed
 
 ### Needed to assign
-- `private GearButtonController ButtonInput`: assign `GearButtonController.cs` in `Start()`
+- `private GearButtonController ButtonInput`: will automatically assign `GearButtonController.cs` in `Start()`
 - `private GameObject train`: assign the train prefab you want to instantiate
 - `private GameObject default_gear_start`: assign the default gear prefab (it will automatically attach on the train prefab at the positions of `ref_points`)
 - `private List<GameObject> gear_models`: assign 3 gear prefabs from small to large

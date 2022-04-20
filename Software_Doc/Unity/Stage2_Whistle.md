@@ -16,11 +16,11 @@ Official document can be found [here](https://www.fmod.com/resources/documentati
 # `TrainWhistleRecord.cs`
 This script should be added to the prefab of the train.
 
-It receives the input from either physical inputs or a keyboard, and then makes the action.
+It receives the input from either physical inputs (Buttons) or a keyboard, and then makes the action.
 
 ## Variables 
 ### Needed to assign
-- `private WhistleController WhistleInput`: assign `WhistleController.cs` in `Start()`
+- `private WhistleController WhistleInput`: will automatically assign `WhistleController.cs` in `Start()`
 - `private Stage3Mgr stage3mgr`: assign `Stage3Mgr.cs` in `Start()`
 - `private List<GameObject> Instrument_model`: assign the 4 different whistles prefab you want to instantiate
 
@@ -43,7 +43,7 @@ public void ClearWhistleModel(); // Call it each time to avoid multiple
 # `WhistleController.cs`
 This script should be added in the main game scene which has to be active at the very beginning of the game.
 
-It gets the input from the midi keyboard. We are using the package [MidiJack: MIDI input plugin for Unity](https://github.com/keijiro/MidiJack). Current project has already imported the package.
+It reads the input from the midi keyboard. We are using the package [MidiJack: MIDI input plugin for Unity](https://github.com/keijiro/MidiJack). Current project has already imported the package.
 
 ## Variables 
 ### Needed to assign
